@@ -21,15 +21,12 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
-
+import javax.annotation.Nullable;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-
-import javax.annotation.Nullable;
-import javax.print.attribute.standard.Media;
 
 /**
  * A {@linkplain Converter.Factory converter} which uses Jackson.
@@ -59,8 +56,7 @@ public final class JacksonConverterFactory extends Converter.Factory {
 
   private final ObjectMapper mapper;
 
-  @Nullable
-  private final MediaType mediaType;
+  @Nullable private final MediaType mediaType;
 
   private JacksonConverterFactory(ObjectMapper mapper, @Nullable MediaType mediaType) {
     this.mapper = mapper;
